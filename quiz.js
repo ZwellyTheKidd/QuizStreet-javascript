@@ -4,44 +4,44 @@ var quiz = {
     // Q = QUESTION, O = OPTIONS, A = CORRECT ANSWER
     data: [
     {
-      q : "What is the standard distance between the target and archer in Olympics?",
+      q : "Which country invented tea??",
       o : [
-        "50 meters",
-        "70 meters",
-        "100 meters",
-        "120 meters"
+        "China",
+        "UK",
+        "Tanzania",
+        "DRC"
       ],
-      a : 1 // arrays start with 0, so answer is 70 meters
+      a : 1 //"China" // arrays start with 0, so answer is 70 meters
     },
     {
-      q : "Which is the highest number on a standard roulette wheel?",
+      q : "Which country is responsible for giving us pizza and pasta?",
       o : [
-        "22",
-        "24",
-        "32",
-        "36"
+        "South Africa",
+        "Brazil",
+        "Italy",
+        "Zimbabwe"
       ],
-      a : 3
+      a : 3 //"Italy"
     },
     {
-      q : "How much wood could a woodchuck chuck if a woodchuck would chuck wood?",
+      q : "Which organ has four chambers?",
       o : [
-        "150 KG",
-        "200 KG",
-        "350 KG",
-        "420 KG"
+        "The liver",
+        "The heart",
+        "The kidney",
+        "The intestines"
       ],
-      a : 2
+      a : 2//"The heart"
     },
     {
-      q : "Which is the seventh planet from the sun?",
+      q : "How many tails does a Manx cat have?",
       o : [
-        "Uranus",
-        "Earth",
-        "Pluto",
-        "Mars"
+        "1",
+        "2",
+        "3",
+        "0"
       ],
-      a : 0
+      a : 0//None
     },
     {
       q : "Which is the largest ocean on Earth?",
