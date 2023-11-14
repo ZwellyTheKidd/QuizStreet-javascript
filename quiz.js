@@ -2,6 +2,10 @@ var quiz = {
     // (A) PROPERTIES
     // (A1) QUESTIONS & ANSWERS
     // Q = QUESTION, O = OPTIONS, A = CORRECT ANSWER
+    player: [{
+      name: '',
+      score: 0
+    }],
     data: [
     {
       q : "What is the standard distance between the target and archer in Olympics?",
@@ -138,6 +142,20 @@ var quiz = {
       quiz.now = 0;
       quiz.score = 0;
       quiz.draw();
+    },
+  
+    // (F) SAVE SCORES to local storage
+    saveScores: () => {
+      let scores = JSON.parse(localStorage.getItem("scores")) || [];
+      scores.push(quiz.score);
+      localStorage.setItem("scores", JSON.stringify(scores));
+    },
+    
+    // (G) READ SCORES from local storage
+    readScores: () => {
+      let scores = JSON.parse(localStorage.getItem("scores")) || [];
+      scores.sort((a, b) => b - a);
+      return scores;
     }
   };
   window.addEventListener("load", quiz.init);
