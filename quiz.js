@@ -1,12 +1,23 @@
-var quiz = {
+
     // (A) PROPERTIES
     // (A1) QUESTIONS & ANSWERS
     // Q = QUESTION, O = OPTIONS, A = CORRECT ANSWER
-    player: [{
+  const player = [{
+      id: 0,
       name: '',
-      score: 0
-    }],
-    data: [
+      score: 0,
+  }];
+
+  const highScoresList = document.getElementById("highScoresList");
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+  highScoresList.innerHTML = highScores
+  .map(score => {
+    return `<li class="high-score">${score.name} - ${score.score}</li>`;
+  })
+  .join("");
+
+  const data = [
     {
       q : "What is the standard distance between the target and archer in Olympics?",
       o : [
@@ -57,19 +68,19 @@ var quiz = {
       ],
       a : 3
     }
-    ],
+  ];
   
     // (A2) HTML ELEMENTS
-    hWrap: null, // HTML quiz container
-    hQn: null, // HTML question wrapper
-    hAns: null, // HTML answers wrapper
+  const hWrap= null;// HTML quiz container
+  const hQn= null; // HTML question wrapper
+  const  hAns= null; // HTML answers wrapper
   
     // (A3) GAME FLAGS
-    now: 0, // current question
-    score: 0, // current score
+  const now = 0; // current question
+  const score = 0;// current score
   
     // (B) INIT QUIZ HTML
-    init: () => {
+   const init = () => {
       // (B1) WRAPPER
       quiz.hWrap = document.getElementById("quizWrap");
   
@@ -85,10 +96,10 @@ var quiz = {
   
       // (B4) GO!
       quiz.draw();
-    },
+    }
   
     // (C) DRAW QUESTION
-    draw: () => {
+   const draw = () => {
       // (C1) QUESTION
       quiz.hQn.innerHTML = quiz.data[quiz.now].q;
   
@@ -107,10 +118,10 @@ var quiz = {
         label.addEventListener("click", () => { quiz.select(label); });
         quiz.hAns.appendChild(label);
       }
-    },
+    }
   
     // (D) OPTION SELECTED
-    select: (option) => {
+   const select = (option) => {
       // (D1) DETACH ALL ONCLICK
       let all = quiz.hAns.getElementsByTagName("label");
       for (let label of all) {
@@ -135,28 +146,28 @@ var quiz = {
           quiz.hAns.innerHTML = "";
         }
       }, 1000);
-    },
+    }
   
     // (E) RESTART QUIZ
-    reset : () => {
+   const reset = () => {
       quiz.now = 0;
       quiz.score = 0;
       quiz.draw();
-    },
+    }
   
     // (F) SAVE SCORES to local storage
-    saveScores: () => {
+   const saveScores= () => {
       let scores = JSON.parse(localStorage.getItem("scores")) || [];
       scores.push(quiz.score);
       localStorage.setItem("scores", JSON.stringify(scores));
-    },
+    }
     
     // (G) READ SCORES from local storage
-    readScores: () => {
+   const readScores = () => {
       let scores = JSON.parse(localStorage.getItem("scores")) || [];
       scores.sort((a, b) => b - a);
       return scores;
     }
-  };
-  window.addEventListener("load", quiz.init);
+  //};
+  //window.addEventListener("load", quiz.init);
   
