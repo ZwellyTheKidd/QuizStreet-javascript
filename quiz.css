@@ -17,6 +17,20 @@
     overflow-y: scroll;
     }
 
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: xx-large;
+    color: #b90a0a;
+  
+}
+names{
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+    color: darkblue;
+}
+
     /* WIDGET */
 .widget-wrap {
     width: 600px;
