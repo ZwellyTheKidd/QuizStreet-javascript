@@ -100,8 +100,8 @@ background-color:#00bfff;
 }
 
 .buttons{
+display: flex;
 
-    
 }
 
 
