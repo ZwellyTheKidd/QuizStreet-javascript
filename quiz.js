@@ -52,6 +52,26 @@ var quiz = {
         "Pacific Ocean"
       ],
       a : 3
+    },
+    {
+      q : "Which is the largest ocean on Earth?",
+      o : [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean",
+        "Pacific Ocean"
+      ],
+      a : 3
+    },
+    {
+      q : "Which is the largest ocean on Earth?",
+      o : [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean",
+        "Pacific Ocean"
+      ],
+      a : 3
     }
     ],
   
@@ -130,7 +150,7 @@ var quiz = {
           quiz.hQn.innerHTML = `You have answered ${quiz.score} of ${quiz.data.length} correctly.`;
           quiz.hAns.innerHTML = "";
         }
-      }, 1000);
+      }, 10);
     },
   
     // (E) RESTART QUIZ
