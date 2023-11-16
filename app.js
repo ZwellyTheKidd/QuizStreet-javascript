@@ -21,23 +21,35 @@ let userState = {
     score: 0
 }
 
-let peopleArray = [];
-
 // init score state
 let scoreState = [
-    { id: '', name: '', score: 0, aswered: 0 }
 ]
 
 
+
 // check answer
-function qtnAnswered(x) {
-    
-    if (x) {
+function indexOf(index, answer) {
 
-        userState.score += 1;
+    let option = questions[index].options[answer];
+    let x=option.isCorrect;
+    let inc=index+1;
+
+      if (!x){
+        console.log("wrong");
     }
-}
+    else{
+        console.log("right");
+        userState.score+=1;
+        console.log(userState.score);
 
+        if (userState.score!=inc) {
+            console.log("wrong");
+            userState.score-=1
+        }
+    }
+
+    userState.lastAnswered =index+1;
+}
 
 
 // hide all
@@ -57,7 +69,7 @@ function showIntro() {
 
 // show scores element
 function showScores() {
-    saveToArray()
+    scoreList()
     hideDivs()
     scoresElement.classList.remove('hidden')
 }
@@ -76,7 +88,6 @@ function onError(text) {
 }
 
 // validate name
-
 function takeQuiz() {
     const name = document.getElementById('name')
 
@@ -105,7 +116,6 @@ function numberQuestion(questionIndex) {
 
     qtnNum.innerHTML = `Question ${x}/${questions.length}`;
 
-    userState.lastAnswered = questionIndex;
 }
 
 // display question
@@ -118,11 +128,13 @@ function getQuestionAndOptions(i) {
     for (let w = 0; w < questions[i].options.length; w++) {
 
         let option = questions[i].options[w]
+        let qIndex=i;
+        let oIndex=w;
 
 
         answersElement.innerHTML += `
-        <div class="option" onClick="qtnAnswered(${option.isCorrect})">
-        <label for="${option.id}" >
+        <div class="option" >
+        <label for="${option.id}" onClick="indexOf(${qIndex}, ${oIndex})">
             <input type="radio" id="${option.id}" name="answer" onChange="onNextQuestion(${w})"> <span>${option.option}</span>
         </label>
         </div>
@@ -146,6 +158,7 @@ function onNextQuestion(index) {
         }, 1000)
     } else {
 
+        saveToArray();
         setTimeout(() => showScores(), 2000)
 
     }
@@ -154,13 +167,8 @@ function onNextQuestion(index) {
 }
 
 // restart user state
-function restartUser() {
-    userState = {
-        id: '',
-        name: '',
-        lastAnswered: 0,
-        score: 0
-    }
+function reloadPage() {
+    window.location.reload();
 }
 
 // add record
@@ -180,20 +188,15 @@ function saveUser() {
 // save data to storage
 function saveToArray() {
 
-    peopleArray.push({
-        id: userState.id,
-        name: userState.name,
-        lastAnswered: userState.lastAnswered,
-        score: userState.score
-    })
-    saveUserState()
+    scoreState.push(userState)
+    saveScoreState()
 
 }
 
 
 // save data to storage
 function saveUserState() {
-    localStorage.setItem('peopleArray', JSON.stringify(userState));
+    localStorage.setItem('userState', JSON.stringify(userState));
 }
 
 function saveScoreState() {
@@ -213,17 +216,31 @@ function getScoreState() {
     }
 }
 
+//display scores list
+function scoreList() {
 
+    let tbody = document.getElementById('tBody');
+
+    tbody.innerHTML = " ";
+
+    for (let w = 0; w < scoreState.length; w++) {
+
+        tbody.innerHTML += `
+        <tr>
+        <td>${scoreState[w].name}</td>
+        <td>${scoreState[w].lastAnswered}</td>
+        <td>${scoreState[w].score}</td>
+    </tr>
+    `
+    }
+}
 
 // render
 function render() {
 
-
-
 }
 
 render()
-
 
 // run this only oce
 document.addEventListener('DOMContentLoaded', function () {
@@ -234,3 +251,6 @@ document.addEventListener('DOMContentLoaded', function () {
     showIntro()
     getScoreState()
 }, false);
+
+
+// localStorage.clear();
