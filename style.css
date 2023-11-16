@@ -1,0 +1,89 @@
+
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.883), rgba(0, 0, 0, 0.278)), url(https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.box {
+    width: 600px;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: whitesmoke;
+}
+
+
+
+.hidden {
+    display: none;
+}
+.form-control{
+    border: 2px solid rgba(128, 128, 128, 0.71);
+}
+
+.error {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: red !important;
+    color: white;
+    font-weight: bold;
+    padding: 1rem 3rem;
+}
+
+.quiz {
+    position: relative;
+}
+
+#questionOf {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-style: italic;
+    font-size: .7rem;
+    font-weight: bold;
+}
+
+.question {
+    font-weight: 200;
+    font-size: 1.8rem;
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: center;
+}
+.answers{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.option {
+    padding: .3rem .5rem;
+}
+
+.option label {
+    cursor: pointer;
+}
+
+
+
+.trueOption {
+    background: rgba(0, 128, 0, 0.517);
+    border-radius: .5rem;
+}
+
+.falseOption {
+    background: rgba(200, 8, 14, 0.517);
+    border-radius: .5rem;
+}
