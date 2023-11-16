@@ -22,7 +22,7 @@
             <div class="intro" id="intro">
                 <div class="display-6 text-center">Quiz Street</div>
                 <div class="my-4">
-                    <input type="text" class="form-control shadow-none " placeholder="Provide your name..." id="name">
+                    <input autocomplete="off" type="text" class="form-control shadow-none " placeholder="Provide your name..." id="name">
                 </div>
                 <div class="text-center">
                     <button class="btn btn-outline-success" onclick="showScores()">View SCORES</button>
@@ -41,41 +41,19 @@
                             <th scope="col">Score</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-    
-                            <td>Mark</td>
-                            <td>2</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>1</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-    
-                            <td>Mark</td>
-                            <td>2</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                           
-                            <td>Jacob</td>
-                            <td>1</td>
-                            <td>0</td>
-                        </tr>
+                    <tbody id="tBody">
+                      
                     </tbody>
                 </table>
                 <div class="text-center mt-3">
-                    <button class="btn btn-outline-success" onclick="showIntro();restartUser() ">Take QUIZ</button>
+                    <button class="btn btn-outline-success" onclick="showIntro();reloadPage() ">Take QUIZ</button>
                 </div>
             </div>
 
             <!-- QUIZ -->
             <div class="quiz" id="quiz">
                 <div class="display-6 text-center">Quiz</div>
-                <span id="questionOf">Question 1/10</span>
+                <span id="questionOf"></span>
                
                     <div class="my-4 px-4 ">
                         <div class="question" id="question"></div>
@@ -85,7 +63,7 @@
                     </div>
                 
                 <div class="text-center">
-                    <button class="btn btn-outline-danger" onclick="showScores()">Quit</button>
+                    <button class="btn btn-outline-danger" onclick="saveToArray();showScores()">Quit</button>
                 </div>
             </div>
         </div>
