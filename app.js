@@ -234,7 +234,7 @@ function scoreList() {
              const userClass = isCurrentUser ? 'current-user' : '';
 
         tbody.innerHTML += `
-        <tr >
+        <tr class="${userClass}">
         <td>${scoreState[w].name}</td>
         <td>${scoreState[w].lastAnswered}</td>
         <td>${scoreState[w].score}</td>
