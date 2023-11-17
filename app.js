@@ -234,10 +234,10 @@ function scoreList() {
              const userClass = isCurrentUser ? 'current-user' : '';
 
         tbody.innerHTML += `
-        <tr class="${userClass}">
-        <td>${scoreState[w].name}</td>
-        <td>${scoreState[w].lastAnswered}</td>
-        <td>${scoreState[w].score}</td>
+        <tr class="${userClass}" >
+        <td style="padding-inline: 20px;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].name}</td>
+        <td style="padding-inline: 20px;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].lastAnswered}</td>
+        <td style="padding-inline: 20px;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].score}</td>
     </tr>
     `
     }
