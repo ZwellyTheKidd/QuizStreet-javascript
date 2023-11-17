@@ -235,9 +235,9 @@ function scoreList() {
 
         tbody.innerHTML += `
         <tr class="${userClass}" >
-        <td style="padding-inline: 20px;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].name}</td>
-        <td style="padding-inline: 20px;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].lastAnswered}</td>
-        <td style="padding-inline: 20px;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].score}</td>
+        <td style="padding-inline: 1.875em;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].name}</td>
+        <td style="padding-inline: 1.875em;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].lastAnswered}</td>
+        <td style="padding-inline: 1.875em;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].score}</td>
     </tr>
     `
     }
