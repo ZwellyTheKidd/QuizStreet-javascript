@@ -223,24 +223,27 @@ function scoreList() {
 
     tbody.innerHTML = " ";
 
+    scoreState.sort((a,b) => b.score  - a.score);
+
     for (let w = 0; w < scoreState.length; w++) {
 
+             // Check if the current iteration is the user to highlight
+             const isCurrentUser = scoreState[w].id === userState.id;
+
+             // Use a class to style the row differently for the current user
+             const userClass = isCurrentUser ? 'current-user' : '';
+
         tbody.innerHTML += `
-        <tr>
-        <td>${scoreState[w].name}</td>
-        <td>${scoreState[w].lastAnswered}</td>
-        <td>${scoreState[w].score}</td>
+        <tr class="${userClass}" >
+        <td style="padding-inline: 1.875em;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].name}</td>
+        <td style="padding-inline: 1.875em;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].lastAnswered}</td>
+        <td style="padding-inline: 1.875em;border: 1px solid rgba(128, 128, 128, 0.45);border-collapse: collapse;">${scoreState[w].score}</td>
     </tr>
     `
     }
 }
 
-// render
-function render() {
 
-}
-
-render()
 
 // run this only oce
 document.addEventListener('DOMContentLoaded', function () {
@@ -251,6 +254,34 @@ document.addEventListener('DOMContentLoaded', function () {
     showIntro()
     getScoreState()
 }, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // localStorage.clear();
