@@ -223,6 +223,8 @@ function scoreList() {
 
     tbody.innerHTML = " ";
 
+    scoreState.sort((a,b) => b.score  - a.score);
+
     for (let w = 0; w < scoreState.length; w++) {
 
         tbody.innerHTML += `
