@@ -227,13 +227,8 @@ function scoreList() {
 
     for (let w = 0; w < scoreState.length; w++) {
 
-        const isCurrentUser = scoreState[w].id === userState.id;
-
-        // Use a class to highlight the current user
-        const highlightClass = isCurrentUser ? 'highlight' : '';
-
         tbody.innerHTML += `
-        <tr class="${highlightClass}">
+        <tr>
         <td>${scoreState[w].name}</td>
         <td>${scoreState[w].lastAnswered}</td>
         <td>${scoreState[w].score}</td>
@@ -241,6 +236,7 @@ function scoreList() {
     `
     }
 }
+
 
 
 // run this only oce
