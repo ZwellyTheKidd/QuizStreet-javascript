@@ -88,3 +88,7 @@
     background: rgba(200, 8, 14, 0.517);
     border-radius: .5rem;
 }
+
+.highlightClass{
+    background-color: red;
+}
