@@ -227,8 +227,14 @@ function scoreList() {
 
     for (let w = 0; w < scoreState.length; w++) {
 
+             // Check if the current iteration is the user to highlight
+             const isCurrentUser = scoreState[w].id === userState.id;
+
+             // Use a class to style the row differently for the current user
+             const userClass = isCurrentUser ? 'current-user' : '';
+
         tbody.innerHTML += `
-        <tr>
+        <tr >
         <td>${scoreState[w].name}</td>
         <td>${scoreState[w].lastAnswered}</td>
         <td>${scoreState[w].score}</td>
